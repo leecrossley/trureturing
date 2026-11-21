@@ -4780,13 +4780,10 @@ selected Robin integer without changing that integer.
 Fix $t\ge A$ and write $s=t/A\ge1$, $v=\log t$. As a function of the
 dilation $c>0$, the transported prime weight is
 
-$$
-f_t(c)=w_c(t)=
-\begin{cases}
- [t(v-\log c)]^{-1},&0\lt c\le s,\\
- (A L c)^{-1},&c\ge s.
-\end{cases}
-$$
+| Dilation | *f*<sub>*t*</sub>(*c*) = *w*<sub>*c*</sub>(*t*) |
+| --- | --- |
+| 0 &lt; *c* ≤ *s* | 1 / (*t* · (*v* − log *c*)) |
+| *c* ≥ *s* | 1 / (*A* · *L* · *c*) |
 
 On $0<c<s$,
 
@@ -5531,12 +5528,10 @@ change of formula at $A$ has not been ignored.
 The local residual $v_c$ is zero outside the closed interval with
 endpoints $A,cA$. Inside that interval its nonzero formula is
 
-```math
-\begin{cases}
-\displaystyle\frac1{cAL}-\frac1{t\log(t/c)},&c>1,\ A\lt t\lt cA,\\[4pt]
-\displaystyle\frac1{t\log(t/c)}-\frac1{cAL},&c<1,\ cA\lt t\lt A.
-\end{cases}
-```
+| Dilation | Interval | *v*<sub>*c*</sub>(*t*) |
+| --- | --- | --- |
+| *c* &gt; 1 | *A* &lt; *t* &lt; *c* · *A* | 1 / (*c* · *A* · *L*) − 1 / (*t* · log(*t* / *c*)) |
+| *c* &lt; 1 | *c* · *A* &lt; *t* &lt; *A* | 1 / (*t* · log(*t* / *c*)) − 1 / (*c* · *A* · *L*) |
 
 The actual endpoint values are those of $B_c-b_c$ in (GS5)–(GS7).
 The first derivative of $1/[t\log(t/c)]$ is $O(1/(A^2L))$ in this
