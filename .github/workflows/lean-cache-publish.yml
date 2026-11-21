@@ -8,7 +8,7 @@ name: Lean build cache publication
 #   -f source_ref=refs/heads/dev -f source_sha="$(git rev-parse dev)"
 on:
   push:
-    branches: [dev]
+    branches: [dev, ci/register-lean-cache]
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
