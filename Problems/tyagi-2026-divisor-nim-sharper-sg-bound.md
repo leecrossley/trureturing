@@ -73,7 +73,8 @@ $$
 \begin{aligned}
 D_0&=(v+1)t+1,\\
 E_j&=2m-m/2^j-2^{j+1}+j+2,\\
-a_k&=\begin{cases}(v-k+1)t,&k<v,\\u,&k=v,\end{cases}\\
+a_k&=\begin{cases}(v-k+1)t,&k\lt v,\\
+u,&k=v,\end{cases}\\
 D_k&=\max(D_{k-1},E_0,\ldots,E_{k-1})+a_k+1.
 \end{aligned}
 $$

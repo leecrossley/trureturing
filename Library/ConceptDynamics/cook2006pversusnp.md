@@ -41,8 +41,8 @@ The boundary values and (2) uniquely determine the table. Define the total bit-v
 
 $$
 \pi_R(x,u)=\begin{cases}
-0,& |u|<m(|x|),\ H_R(x,u0)=1,\\
-1,& |u|<m(|x|),\ H_R(x,u0)=0,\\
+0,& |u|\lt m(|x|),\ H_R(x,u0)=1,\\
+1,& |u|\lt m(|x|),\ H_R(x,u0)=0,\\
 0,& |u|\ge m(|x|).
 \end{cases}
 $$

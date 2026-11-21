@@ -10,7 +10,12 @@ T_(n,s) imposes s at most n, true bits in the final s positions, and a false bit
 
 **Theorem 1.1 (All terminal-one and trailing-zero branches).**
 
-$$T_{n,s}=\begin{cases}\emptyset&n<s\\\{S_s\}&n=s\\I_{n-s-1}+x^{n-s}S_s&s+1\leq n\end{cases}\qquad\land\qquad Z_{n,z}=\begin{cases}\emptyset&n<z\\I_{n-z}&z\leq n\end{cases}$$
+$$
+T_{n,s}=\begin{cases}\emptyset&n\lt s\\
+\lbrace S_s\rbrace &n=s\\
+I_{n-s-1}+x^{n-s}S_s&s+1\leq n\end{cases}\qquad\land\qquad Z_{n,z}=\begin{cases}\emptyset&n\lt z\\
+I_{n-z}&z\leq n\end{cases}
+$$
 
 *Proof.* Machine-checked in Lean as `D5/S1/Words/AdmissibleWords/KBonacciActualTailImages.actual_tail_zero_image_decomposition` (`✓ std3`). ∎
 

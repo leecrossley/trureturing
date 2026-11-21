@@ -1001,8 +1001,8 @@ Let $h_A(u)=1/[\max(A,u)\log\max(A,u)]$ and put
 $$
 v_A(x)=\frac{h_A(1/x)}x=
 \begin{cases}
-1/\log(1/x),&0<x\le1/A,\\
-1/(A\log A\,x),&x\ge1/A.
+1/\log(1/x),&0\lt x\le1/A,\\
+1/(A\log A\thinspace x),&x\ge1/A.
 \end{cases}
 \tag{S1}
 $$
@@ -4783,7 +4783,7 @@ dilation $c>0$, the transported prime weight is
 $$
 f_t(c)=w_c(t)=
 \begin{cases}
- [t(v-\log c)]^{-1},&0<c\le s,\\
+ [t(v-\log c)]^{-1},&0\lt c\le s,\\
  (A L c)^{-1},&c\ge s.
 \end{cases}
 $$
@@ -5531,12 +5531,12 @@ change of formula at $A$ has not been ignored.
 The local residual $v_c$ is zero outside the closed interval with
 endpoints $A,cA$. Inside that interval its nonzero formula is
 
-$$
+```math
 \begin{cases}
-\displaystyle\frac1{cAL}-\frac1{t\log(t/c)},&c>1,\ A<t<cA,\\[4pt]
-\displaystyle\frac1{t\log(t/c)}-\frac1{cAL},&c<1,\ cA<t<A.
+\displaystyle\frac1{cAL}-\frac1{t\log(t/c)},&c>1,\ A\lt t\lt cA,\\[4pt]
+\displaystyle\frac1{t\log(t/c)}-\frac1{cAL},&c<1,\ cA\lt t\lt A.
 \end{cases}
-$$
+```
 
 The actual endpoint values are those of $B_c-b_c$ in (GS5)–(GS7).
 The first derivative of $1/[t\log(t/c)]$ is $O(1/(A^2L))$ in this
