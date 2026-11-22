@@ -202,9 +202,9 @@ Put $z_\pm=(E_\pm-B_y)_+$ and define
 
 $$
 \begin{aligned}
-t_+(z)&=\min\{h_0,z/(y+z)\},\\
+t_+(z)&=\min\lbrace h_0,z/(y+z)\rbrace ,\\
 t_-(z)&=\begin{cases}
-\min\{h_0,z/(y-z)\},&z<y,\\
+\min\lbrace h_0,z/(y-z)\rbrace ,&z\lt y,\\
 h_0,&z\ge y,
 \end{cases}\\
 G_+(z)&=(z+y)t_+(z)+y\log(1-t_+(z)),\\

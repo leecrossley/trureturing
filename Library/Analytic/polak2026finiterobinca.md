@@ -2187,8 +2187,8 @@ $\alpha=197/200$, $u=e^{500}$, $v=e^{1000}$. Define
 $$
 M(\sigma,t)=
 \begin{cases}
-\min\{D_I(\sigma,t),Ct^{B(1-\sigma)}\},
- &\alpha\le\sigma<1,\ u<t\le v,\\
+\min\lbrace D_I(\sigma,t),Ct^{B(1-\sigma)}\rbrace ,
+ &\alpha\le\sigma<1,\ u\lt t\le v,\\
 D_I(\sigma,t),&\text{otherwise}.
 \end{cases}
 \tag{Y2}

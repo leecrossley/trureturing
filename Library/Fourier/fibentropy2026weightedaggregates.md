@@ -349,7 +349,7 @@ $$
 n_y=\prod_{p\le y}p^{a_p},\qquad
  a_p=\begin{cases}
 \lceil\log s/\log p\rceil,&p\le\sqrt s,\\
-1,&\sqrt s<p\le y.
+1,&\sqrt s\lt p\le y.
 \end{cases}
 $$
 

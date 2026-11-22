@@ -38,16 +38,17 @@ The survey poses Problem 3 with no answer. Its positive argument for constant ex
 Use Lebesgue measure on $(0,1)$ and put
 
 $$
-p(t)=\begin{cases}1,&0<t<1/2,\\2,&1/2\le t<1.\end{cases}
+p(t)=\begin{cases}1,&0\lt t<1/2,\\
+2,&1/2\le t<1.\end{cases}
 $$
 
 The Lean definition extends $p$ to all of $\mathbb R$ by the same test $t<1/2$. For $u=(u_1,u_2,u_3)$, define the step function
 
 $$
 J(u)(t)=\begin{cases}
-4u_1,&0<t<1/4,\\
+4u_1,&0\lt t<1/4,\\
 4u_2,&1/4\le t<1/2,\\
-\sqrt2\,u_3,&1/2\le t<1,\\
+\sqrt2\thinspace u_3,&1/2\le t<1,\\
 0,&\text{otherwise}.
 \end{cases}
 $$

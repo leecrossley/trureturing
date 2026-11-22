@@ -828,11 +828,11 @@ For integer $r\ge D$, this is $D$ only on $D\le n\le r$. The early
 $n<D$ correction and late triangular tail are retained in the exact identity
 
 $$
- L_{D,r}(n)=D\mathbf1_{\{1\le n\le r\}}+e_{D,r}(n),\qquad
+ L_{D,r}(n)=D\mathbf1_{\lbrace 1\le n\le r\rbrace }+e_{D,r}(n),\qquad
  e_{D,r}(n)=
  \begin{cases}
- n-D,&1\le n<D,\\
- r+D-n,&r<n<r+D,\\
+ n-D,&1\le n\lt D,\\
+ r+D-n,&r\lt n\lt r+D,\\
  0,&\text{otherwise}.
  \end{cases}
 $$
