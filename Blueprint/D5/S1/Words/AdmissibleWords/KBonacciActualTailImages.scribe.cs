@@ -18,11 +18,7 @@ internal sealed class KBonacciActualTailImagesDocument : IScribeDocumentDefiniti
                     + "sum of x^j over its true positions, counted from the constant term. "
                     + "Let I_n be the set of values of these accepted length-n words, and "
                     + "let S_s be the sum of x^j for zero at most j below s.")),
-            Paragraph(Text(
-                "T_(n,s) imposes s at most n, true bits in the final s positions, and a "
-                    + "false bit at position n-s-1 whenever that position exists. Z_(n,z) "
-                    + "imposes z at most n and false bits in the final z positions. Both "
-                    + "sets use the same actual accepted words as I_n.")),
+            Paragraph(Text("T_(n,s) imposes s at most n, true bits in the final s positions, and a false bit at position n-s-1 whenever that position exists. Z_(n,z) imposes z at most n and false bits in the final z positions. Both sets use the same actual accepted words as I_n. The equations hold for all natural numbers n, s and z with s below k and z positive.")),
             Describe.Lean(
                 DescribeId.Create("kbonacci-actual-tail-zero-image-decomposition"),
                 DeclarationHandle.Create(
@@ -30,11 +26,12 @@ internal sealed class KBonacciActualTailImagesDocument : IScribeDocumentDefiniti
                         + "actual_tail_zero_image_decomposition"),
                 H("All terminal-one and trailing-zero branches"),
                 StatementSource.FromAuthor(Disp(Seq(
+                    Nl,
                     F.Id("T"), Underscore, Grp(F.Id("n"), Comma, F.Id("s")), Eq,
                     Begin, Grp(F.Id("cases")),
-                    Emptyset, Amp, F.Id("n"), Lt, F.Id("s"), RowBreak,
-                    OpenBrace, F.Id("S"), Underscore, F.Id("s"), CloseBrace,
-                    Amp, F.Id("n"), Eq, F.Id("s"), RowBreak,
+                    Emptyset, Amp, F.Id("s"), Gt, F.Id("n"), RowBreak, Nl,
+                    F.Id("I"), Underscore, D(0), Plus, F.Id("S"), Underscore, F.Id("s"),
+                    Amp, F.Id("n"), Eq, F.Id("s"), RowBreak, Nl,
                     F.Id("I"), Underscore, Grp(F.Id("n"), Minus, F.Id("s"), Minus, D(1)),
                     Plus, F.Id("x"), Caret, Grp(F.Id("n"), Minus, F.Id("s")),
                     F.Id("S"), Underscore, F.Id("s"), Amp,
@@ -42,18 +39,13 @@ internal sealed class KBonacciActualTailImagesDocument : IScribeDocumentDefiniti
                     End, Grp(F.Id("cases")), Qquad, Land, Qquad, Sp,
                     F.Id("Z"), Underscore, Grp(F.Id("n"), Comma, F.Id("z")), Eq,
                     Begin, Grp(F.Id("cases")),
-                    Emptyset, Amp, F.Id("n"), Lt, F.Id("z"), RowBreak,
+                    Emptyset, Amp, F.Id("z"), Gt, F.Id("n"), RowBreak, Nl,
                     F.Id("I"), Underscore, Grp(F.Id("n"), Minus, F.Id("z")),
                     Amp, F.Id("z"), Leq, Sp, F.Id("n"),
-                    End, Grp(F.Id("cases"))))),
+                    End, Grp(F.Id("cases")), Nl))),
                 AssessedProvenance.FromRepo(),
                 Blocks(
-                    Paragraph(Text(
-                        "The equations hold for every natural n, every s below k, and every "
-                            + "positive z. At n=s the only word is the all-true word, including "
-                            + "the empty word when s=0. For n at least s+1, every exact-tail "
-                            + "word has the form v followed by a false bit and then s true "
-                            + "bits, with v of length n-s-1.")),
+                    Paragraph(Text("At n=s the only word is the all-true word, including the empty word when s=0. The empty word has value zero, so the translated set I_0+S_s contains only S_s. For n at least s+1, every exact-tail word has the form v followed by a false bit and then s true bits, with v of length n-s-1.")),
                     Paragraph(Text(
                         "Deleting the suffix preserves acceptance. Conversely, the scanner "
                             + "through a prefix followed by a false delimiter is the conjunction "
