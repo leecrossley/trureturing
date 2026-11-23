@@ -497,7 +497,7 @@ protected dev push or pinned manual build
 
 **本机 Lake 缓存与定向构建。** 干净的主 `dev` 经 `make warm-donor FULL_BUILD=1` 完成各 workspace 的预热。Lake 将可缓存的产物和输入映射写入本机原生 artifact cache，并在开发检出保留可供现有消费者使用的产物。定向构建和报告准备按各目标的依赖 trace 在本工作树中恢复或编译。定向报告只读取或恢复与 trace 相符的编译产物；Git 源码使用 manifest 钉版。定向入口在私有写锁下核对 pin 和探针，项目层为空时也可运行。独立全量缓存准备显式调用 `make lean-cache-ensure FULL_BUILD=1`，仅全量路径允许 donor clonefile。整库报告恢复与 Actions 运输仍按各自入口执行。
 
-For a scoped report with no adopted PR preparation and no local `Mathlib.olean`, the hosted workflow tries the public cache for the Mathlib revision in `lake-manifest.json`. If the download fails, Lake can still compile the dependencies during the required report check.
+When a check needs Lean, the hosted workflow first looks for an adopted PR preparation or a local `Mathlib.olean`. If both are missing, it tries the public cache for the Mathlib revision in `lake-manifest.json`. After a download failure, Lake can still compile the dependencies during the required check.
 
 **短 CI 计时边界。** `current` 的准备与计算交错，`ci_compute.py` 在 source 与 continuation 各自 job 的 `RUNNER_TEMP` 中独占保存剩余秒数。source 初次初始化，continuation 仅从上文已校验的 job-output 余额恢复，不重置或另给 120 分钟；文件本身不跨 job 运输。各串行计算调用使用同一累计余额、单调时钟和 GNU `timeout`，累计计算阶段挂钟而非 CPU 核秒，不是每步各给 120 分钟；超时返回 124，TERM 后最多 5 秒清理宽限，必要时 KILL（退出 137）。余额文件缺失、损坏或并发占用直接失败；启动前先清零，异常中断不留下未扣费余额。普通命令失败保留原非零退出码与输出。此文件不是缓存、receipt、调度器或持久账本。
 
