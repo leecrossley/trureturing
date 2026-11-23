@@ -302,6 +302,13 @@ jobs:
           DEPENDENCY_OUTCOME: ${{ steps.dependency.outcome }}
           PROJECT_OUTCOME: ${{ steps.project.outcome }}
         run: python3 tools/scripts/worktree/lean_actions.py restore --repository "$GITHUB_WORKSPACE" --dependency-key "$DEPENDENCY_KEY" --project-key "$PROJECT_KEY" --project-restore-key "$PROJECT_RESTORE_KEY" --dependency-outcome "$DEPENDENCY_OUTCOME" --project-outcome "$PROJECT_OUTCOME"
+      - name: Fetch pinned Mathlib for a cold Lean check
+        if: ${{ !cancelled() && steps.lean_plan.outputs.needs_lean == 'true' && steps.lean_seeds.outcome == 'success' && steps.prepared.outputs.adopted != 'true' }}
+        continue-on-error: true
+        run: |
+          if [[ ! -f .lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean ]]; then
+            lake exe @mathlib/cache get
+          fi
       - name: Theory-only file and capacity checks
         if: needs.detect.outputs.report == 'false' && needs.source.outputs.source_status != 'accepted'
         env:
