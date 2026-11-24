@@ -39,7 +39,11 @@ private def r (t : ℝ) : ℝ := QuotientIntegralBudget.weightEnvelope t
 /-- The weighted complete Chebyshev tail. -/
 private def I (t : ℝ) : ℝ := ∫ u in Ioi t, psiErrorKernel u * r u
 
-/-- The finite complete Mangoldt cumulative error. -/
+/-- The finite complete Mangoldt cumulative error.
+
+The ordinary Riemann hypothesis has a finite-window criterion for this sum. Take the zeta coefficient to be one and the character coefficient to be zero in the [integer-chord estimate](https://github.com/the-omega-institute/trureturing/blob/47ab8cac10f30af7340712a5e13346b525b69433/D5/S3/CharacterSums/DirichletJointPositiveWindow.lean#L457-L466). For fixed δ > 0, write H = Y^(1+δ) and Q for the positive chord mass on [Y,H]. Under RH the integrated explicit formula gives U(x) = O(√x), so Q = O(log Y).
+
+Conversely, a zero with real part greater than θ > 1/2 forces U(x) > x^θ on a set of measure greater than Y^(1+δ−ε) in every sufficiently late window, for each ε > 0. Integrating x^(θ−3/2) on that set gives a lower bound H^(θ−1/2)Y^(−ε) for the positive mass. The chord error is at most 1/(4Y^(3/2)). Hence ordinary RH is equivalent to Q ≤ Y^η on arbitrarily late windows for each η > 0. [Crossley’s measure theorem, §11.3](https://doi.org/10.5281/zenodo.24466908). -/
 def U (t : ℝ) : ℝ :=
   t * (∑ n ∈ Finset.Ioc 0 ⌊t⌋₊, ArithmeticFunction.vonMangoldt n / (n : ℝ)) -
     Chebyshev.psi t - t * log t + (1 + eulerMascheroniConstant) * t
